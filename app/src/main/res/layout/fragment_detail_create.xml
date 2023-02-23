@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="blocksViewModel"
+            type="com.udacity.blockstore.BlocksViewModel" />
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="company"
+            type="String" />
+        <variable
+            name="weight"
+            type="String" />
+        <variable
+            name="description"
+            type="String" />
+    </data>
+
+    <!-- constraint layout was chosen because I wanted to have the labels and value fields side by
+    side. I could have used multiple linear layouts, but that would be clunky. On top of this I also
+    wanted the buttons to each take up half of the space between the start of the label, and the end
+    of the edit field, and this would require another viewgroup since the button division wouldn't
+    be equal if I were to match the label and value widths for the sake of the buttons  -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- meant to be equivalent to "shoe name" in the rubric -->
+        <TextView
+            android:id="@+id/blockNameLabel"
+            android:labelFor="@id/blockNameEditText"
+            android:text="@string/block_name"
+            app:layout_constraintBottom_toBottomOf="@+id/blockNameEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/blockNameEditText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <EditText
+            android:id="@+id/blockNameEditText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            android:text="@{name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/blockNameLabel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/StandardTextEntryStyle"/>
+
+        <TextView
+            android:id="@+id/companyLabel"
+            android:labelFor="@id/companyEditText"
+            android:text="@string/company"
+            app:layout_constraintBottom_toBottomOf="@+id/companyEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/companyEditText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <EditText
+            android:id="@+id/companyEditText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            android:text="@{company}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/blockNameLabel"
+            app:layout_constraintTop_toBottomOf="@id/blockNameEditText"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/StandardTextEntryStyle"/>
+
+        <!-- meant to be equivalent to "shoe size" in the rubric -->
+        <TextView
+            android:id="@+id/weightLabel"
+            android:labelFor="@id/weightEditText"
+            android:text="@string/weight_kg"
+            app:layout_constraintBottom_toBottomOf="@+id/weightEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/weightEditText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <EditText
+            android:id="@+id/weightEditText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:inputType="number"
+            android:importantForAutofill="no"
+            android:text="@{weight}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/weightLabel"
+            app:layout_constraintTop_toBottomOf="@id/companyEditText"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/StandardTextEntryStyle"/>
+
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:labelFor="@id/descriptionEditText"
+            android:text="@string/description"
+            app:layout_constraintBottom_toBottomOf="@+id/descriptionEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/descriptionEditText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            android:text="@{description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/weightLabel"
+            app:layout_constraintTop_toBottomOf="@id/weightEditText"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/StandardTextEntryStyle"/>
+
+        <Button
+            android:id="@+id/createBlockButton"
+            android:text="@string/save"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintStart_toStartOf="@id/descriptionLabel"
+            app:layout_constraintEnd_toStartOf="@id/cancelButton"
+            app:layout_constraintTop_toBottomOf="@id/descriptionEditText"
+            style="@style/ConstraintLayoutButtonStyle"/>
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:text="@string/cancel"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/createBlockButton"
+            app:layout_constraintEnd_toEndOf="@id/descriptionEditText"
+            app:layout_constraintTop_toBottomOf="@id/descriptionEditText"
+            style="@style/ConstraintLayoutButtonStyle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

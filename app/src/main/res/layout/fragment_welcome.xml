@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- LinearLayout was chosen because what needed to be achieved could be done by aligning all of
+    the views vertically, meaning there was no need for a more complex constraint layout -->
+    <LinearLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".screens.WelcomeFragment">
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:text="@string/welcome_message"
+            android:layout_marginTop="@dimen/largeMargin"
+            style="@style/linearLayoutTitleStyle" />
+
+        <TextView
+            android:id="@+id/infoText"
+            android:text="@string/proceed_message"
+            style="@style/linearLayoutTextStyle" />
+
+        <Button
+            android:id="@+id/instructionsButton"
+            android:text="@string/instructions"
+            style="@style/linearLayoutButtonStyle" />
+    </LinearLayout>
+
+</layout>

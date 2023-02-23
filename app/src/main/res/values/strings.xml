@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Block Store</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email:</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="welcome_message">Welcome to the block store!</string>
+    <string name="proceed_message">Please proceed by clicking the button below for a quick how-to!</string>
+    <string name="instructions">Instructions</string>
+    <string name="instruction_text">Go do this go do this, king in the castle.</string>
+    <string name="instruction_title_text">Block Store How-To</string>
+    <string name="view_block_list">View Block List</string>
+    <string name="actions_button">Add block action</string>
+    <string name="block_name">Block Name:</string>
+    <string name="description">Description:</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="company">Company:</string>
+    <string name="weight_kg">Weight (kg):</string>
+    <string name="block_scrollview_content_description">Scroll view for viewing available blocks</string>
+    <string name="return_to_list">Return to list</string>
+    <string name="create_block">Create Block</string>
+    <string name="block_detail">Block Details</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="username"
+            type="String" />
+        <variable
+            name="password"
+            type="String" />
+    </data>
+
+    <!-- linear layout was used because everything is in a vertical stack. There are no rows where
+    two views are together horizontally, so we would be taking a performance hit for no reason
+    utilizing a constraint layout -->
+    <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/emailAddressLabel"
+            android:text="@string/email"
+            android:layout_marginTop="@dimen/mediumMargin"
+            android:labelFor="@id/emailEditText"
+            style="@style/linearLayoutLabelStyle" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:text="@{username}"
+            style="@style/linearLayoutInputStyle"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress" />
+
+        <TextView
+            android:id="@+id/passwordLabel"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:labelFor="@id/passwordEditText"
+            style="@style/linearLayoutLabelStyle" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:text="@{password}"
+            style="@style/linearLayoutInputStyle"
+            android:inputType="textPassword"
+            android:autofillHints="password" />
+
+        <Button
+            android:id="@+id/createLoginButton"
+            android:text= "@string/create_account"
+            android:layout_marginTop="@dimen/smallMargin"
+            style="@style/linearLayoutButtonStyle"/>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:text="@string/login"
+            style="@style/linearLayoutButtonStyle"/>
+
+    </LinearLayout>
+</layout>

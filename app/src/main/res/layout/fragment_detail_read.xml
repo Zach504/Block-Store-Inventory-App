@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="blocksViewModel"
+            type="com.udacity.blockstore.BlocksViewModel" />
+        <variable
+            name="position"
+            type="Integer"/>
+    </data>
+
+    <!-- constraint layout was chosen because I wanted to have the labels and display fields side by
+    side. I could have used multiple linear layouts, but that would be clunky. On top of this I also
+    wanted the buttons to each take up half of the space between the start of the label, and the end
+    of the edit field, and this would require another viewgroup since the button division wouldn't
+    be equal if I were to match the label and edit text widths   -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- meant to be equivalent to "shoe name" in the rubric -->
+        <TextView
+            android:id="@+id/blockNameLabel"
+            android:labelFor="@id/blockNameText"
+            android:text="@string/block_name"
+            app:layout_constraintBottom_toBottomOf="@+id/blockNameText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/blockNameText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <TextView
+            android:id="@+id/blockNameText"
+            android:layout_marginTop="@dimen/mediumMargin"
+            android:text="@{blocksViewModel.getName(position)}"
+            app:layout_constraintWidth_max="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/blockNameLabel"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/ConstraintLayoutTextStyle"
+            tools:text="Dirt"/>
+
+        <TextView
+            android:id="@+id/companyLabel"
+            android:labelFor="@id/companyText"
+            android:text="@string/company"
+            app:layout_constraintBottom_toBottomOf="@+id/companyText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/companyText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <TextView
+            android:id="@+id/companyText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:text="@{blocksViewModel.getCompany(position)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/blockNameLabel"
+            app:layout_constraintTop_toBottomOf="@id/blockNameText"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/ConstraintLayoutTextStyle"
+            tools:text="Nestle"/>
+
+        <!-- meant to be equivalent to "shoe size" in the rubric -->
+        <TextView
+            android:id="@+id/weightLabel"
+            android:labelFor="@id/weightText"
+            android:text="@string/weight_kg"
+            app:layout_constraintBottom_toBottomOf="@+id/weightText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/weightText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:text="@{blocksViewModel.getWeight(position)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/weightLabel"
+            app:layout_constraintTop_toBottomOf="@id/companyText"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/ConstraintLayoutTextStyle"
+            tools:text="5 kg"/>
+
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:labelFor="@id/descriptionEditText"
+            android:text="@string/description"
+            app:layout_constraintBottom_toBottomOf="@+id/descriptionText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/descriptionText"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:text="@{blocksViewModel.getDescription(position)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/weightLabel"
+            app:layout_constraintTop_toBottomOf="@id/weightText"
+            app:layout_constraintWidth_max="300dp"
+            style="@style/ConstraintLayoutTextStyle"
+            tools:text="This is a block of dirt. You can use it for a whole bunch of things, like building a house"/>
+
+        <Button
+            android:id="@+id/returnButton"
+            android:text="@string/return_to_list"
+            android:layout_marginTop="@dimen/smallMargin"
+            app:layout_constraintStart_toStartOf="@id/descriptionLabel"
+            app:layout_constraintTop_toBottomOf="@id/descriptionText"
+            app:layout_constraintEnd_toEndOf="@id/descriptionText"
+            style="@style/ConstraintLayoutButtonStyle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

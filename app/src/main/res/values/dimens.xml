@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="smallMargin">15dp</dimen>
+    <dimen name="mediumPadding">15dp</dimen>
+    <dimen name="largeMargin">80dp</dimen>
+    <dimen name="standardWidth">300dp</dimen>
+    <dimen name="mediumMargin">30dp</dimen>
+    <dimen name="largePadding">100dp</dimen>
+    <dimen name="standardHeight">50dp</dimen>
+</resources>

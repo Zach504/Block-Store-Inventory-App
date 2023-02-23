@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="blocksViewModel"
+            type="com.udacity.blockstore.BlocksViewModel"/>
+        <variable
+            name="position"
+            type="Integer"/>
+    </data>
+    <!-- I wanted rows of items horizontally and vertically, which is why I went with a constraint layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/blockLayout"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/nameText"
+            android:text="@{blocksViewModel.getName(position)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dirt"
+            style="@style/ConstraintLayoutLabelStyle"/>
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{blocksViewModel.getDescription(position)}"
+            app:layout_constraintStart_toStartOf="@id/nameText"
+            app:layout_constraintTop_toBottomOf="@id/nameText"
+            tools:text="A block of dirt"/>
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/smallMargin"
+            android:text="@{blocksViewModel.getWeight(position)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="5 kg"/>
+        <TextView
+            android:id="@+id/companyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/smallMargin"
+            android:text="@{blocksViewModel.getCompany(position)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/descriptionText"
+            tools:text="Nestle"/>
+        <com.google.android.material.divider.MaterialDivider
+            app:dividerThickness="1dp"
+            app:dividerColor="?colorPrimaryVariant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/descriptionText"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
