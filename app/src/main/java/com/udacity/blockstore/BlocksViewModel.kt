@@ -13,12 +13,18 @@ class BlocksViewModel : ViewModel(){
     val blocks : LiveData<ArrayList<Block>>
         get() = _blocks
 
+    val email = MutableLiveData<String>()
+    val password = MutableLiveData<String>()
+
     init {
         _blocks.value = ArrayList<Block>()
         val b1 = Block("Dirt",50.0, "Nestle", "A block of dirt.")
         val b2 = Block("Stone",200.0, "Marathon", "A block of solid stone.")
         _blocks.value!!.add(b1)
         _blocks.value!!.add(b2)
+
+        email.value = ""
+        password.value = ""
     }
 
     fun addBlock(name: String, weight: String, company: String, description: String){

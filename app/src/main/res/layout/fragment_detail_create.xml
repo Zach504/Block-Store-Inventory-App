@@ -8,17 +8,8 @@
             name="blocksViewModel"
             type="com.udacity.blockstore.BlocksViewModel" />
         <variable
-            name="name"
-            type="String" />
-        <variable
-            name="company"
-            type="String" />
-        <variable
-            name="weight"
-            type="String" />
-        <variable
-            name="description"
-            type="String" />
+            name="blockViewModel"
+            type="com.udacity.blockstore.BlockViewModel" />
     </data>
 
     <!-- constraint layout was chosen because I wanted to have the labels and value fields side by
@@ -31,6 +22,7 @@
         android:layout_height="match_parent">
 
         <!-- meant to be equivalent to "shoe name" in the rubric -->
+
         <TextView
             android:id="@+id/blockNameLabel"
             android:labelFor="@id/blockNameEditText"
@@ -39,12 +31,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/blockNameEditText"
             style="@style/ConstraintLayoutLabelStyle"/>
+            <!-- android:text="@string/block_name" -->
         <EditText
             android:id="@+id/blockNameEditText"
             android:layout_marginTop="@dimen/smallMargin"
             android:inputType="text"
             android:importantForAutofill="no"
-            android:text="@{name}"
+            android:text="@={blockViewModel.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/blockNameLabel"
@@ -65,7 +58,7 @@
             android:layout_marginTop="@dimen/smallMargin"
             android:inputType="text"
             android:importantForAutofill="no"
-            android:text="@{company}"
+            android:text="@={blockViewModel.company}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/blockNameLabel"
@@ -87,7 +80,7 @@
             android:layout_marginTop="@dimen/smallMargin"
             android:inputType="number"
             android:importantForAutofill="no"
-            android:text="@{weight}"
+            android:text="@={blockViewModel.weight}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/weightLabel"
@@ -108,7 +101,7 @@
             android:layout_marginTop="@dimen/smallMargin"
             android:inputType="text"
             android:importantForAutofill="no"
-            android:text="@{description}"
+            android:text="@={blockViewModel.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/weightLabel"

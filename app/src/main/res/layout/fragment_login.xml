@@ -5,11 +5,8 @@
 
     <data>
         <variable
-            name="username"
-            type="String" />
-        <variable
-            name="password"
-            type="String" />
+            name="blocksViewModel"
+            type="com.udacity.blockstore.BlocksViewModel" />
     </data>
 
     <!-- linear layout was used because everything is in a vertical stack. There are no rows where
@@ -30,7 +27,7 @@
 
         <EditText
             android:id="@+id/emailEditText"
-            android:text="@{username}"
+            android:text="@={blocksViewModel.email}"
             style="@style/linearLayoutInputStyle"
             android:inputType="textEmailAddress"
             android:autofillHints="emailAddress" />
@@ -44,7 +41,7 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:text="@{password}"
+            android:text="@={blocksViewModel.password}"
             style="@style/linearLayoutInputStyle"
             android:inputType="textPassword"
             android:autofillHints="password" />

@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.udacity.blockstore.BlockViewModel
 import com.udacity.blockstore.BlocksViewModel
 import com.udacity.blockstore.R
 import com.udacity.blockstore.databinding.FragmentDetailCreateBinding
@@ -19,23 +20,16 @@ import com.udacity.blockstore.databinding.FragmentDetailCreateBinding
 class DetailCreateFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailCreateBinding
+    private lateinit var blockViewModel: BlockViewModel
 
     private val blocksViewModel: BlocksViewModel by activityViewModels()
-
-    private val KEY_NAME = "key_name"
-    private val KEY_COMPANY = "key_company"
-    private val KEY_WEIGHT = "key_weight"
-    private val KEY_DESCRIPTION = "key_description"
-
-    private var name : String = ""
-    private var company : String = ""
-    private var weight : String = ""
-    private var description : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //Inflate view and get instance of binding class
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_create, container, false)
+        blockViewModel = ViewModelProvider(this).get(BlockViewModel::class.java)
+        binding.blockViewModel = blockViewModel
         binding.lifecycleOwner = this
 
         binding.createBlockButton.setOnClickListener {
@@ -47,26 +41,6 @@ class DetailCreateFragment : Fragment() {
             findNavController().navigate(DetailCreateFragmentDirections.actionDetailCreateFragmentToListingFragment())
         }
 
-        if(savedInstanceState != null){
-            name = savedInstanceState.getString(KEY_NAME).toString()
-            company = savedInstanceState.getString(KEY_COMPANY).toString()
-            weight = savedInstanceState.getString(KEY_WEIGHT).toString()
-            description = savedInstanceState.getString(KEY_DESCRIPTION).toString()
-        }
-
-        binding.name = name
-        binding.company = company
-        binding.weight = weight
-        binding.description = description
-
         return binding.root
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(KEY_NAME, name)
-        outState.putString(KEY_COMPANY, company)
-        outState.putString(KEY_WEIGHT, weight)
-        outState.putString(KEY_DESCRIPTION, description)
     }
 }
