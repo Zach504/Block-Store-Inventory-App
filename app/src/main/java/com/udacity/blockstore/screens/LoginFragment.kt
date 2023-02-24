@@ -24,7 +24,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //Inflate view and get instance of binding class
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.blocksViewModel = blocksViewModel
         //Create Account Click Listener
         binding.createLoginButton.setOnClickListener {

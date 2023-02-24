@@ -26,7 +26,7 @@ class DetailReadFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //Inflate view and get instance of binding class
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_read, container, false)
+        binding = FragmentDetailReadBinding.inflate(inflater, container, false)
         binding.blocksViewModel = blocksViewModel
         binding.lifecycleOwner = this
 

@@ -27,13 +27,13 @@ class DetailCreateFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //Inflate view and get instance of binding class
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_create, container, false)
+        binding = FragmentDetailCreateBinding.inflate(inflater, container, false)
         blockViewModel = ViewModelProvider(this).get(BlockViewModel::class.java)
         binding.blockViewModel = blockViewModel
         binding.lifecycleOwner = this
 
         binding.createBlockButton.setOnClickListener {
-            blocksViewModel.addBlock(binding.blockNameEditText.text.toString(), binding.weightEditText.text.toString(), binding.companyEditText.text.toString(), binding.descriptionEditText.text.toString())
+            blocksViewModel.addBlock(blockViewModel.name.value.toString(), blockViewModel.weight.value.toString(), blockViewModel.company.value.toString(), blockViewModel.description.value.toString())
             findNavController().navigate(DetailCreateFragmentDirections.actionDetailCreateFragmentToListingFragment())
         }
 

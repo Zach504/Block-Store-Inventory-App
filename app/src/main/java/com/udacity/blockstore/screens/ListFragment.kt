@@ -30,7 +30,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?): View? {
 
         //Inflate view and get instance of binding class
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+        binding = FragmentListBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
 
         //Create List Click Listener

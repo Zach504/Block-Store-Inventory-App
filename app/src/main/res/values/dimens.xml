@@ -7,4 +7,5 @@
     <dimen name="mediumMargin">30dp</dimen>
     <dimen name="largePadding">100dp</dimen>
     <dimen name="standardHeight">50dp</dimen>
+    <dimen name="largeWidth">300dp</dimen>
 </resources>

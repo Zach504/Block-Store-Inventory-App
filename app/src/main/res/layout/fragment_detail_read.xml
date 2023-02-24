@@ -34,7 +34,7 @@
             android:id="@+id/blockNameText"
             android:layout_marginTop="@dimen/mediumMargin"
             android:text="@{blocksViewModel.getName(position)}"
-            app:layout_constraintWidth_max="300dp"
+            app:layout_constraintWidth_max="@dimen/largeWidth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/blockNameLabel"
@@ -58,7 +58,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/blockNameLabel"
             app:layout_constraintTop_toBottomOf="@id/blockNameText"
-            app:layout_constraintWidth_max="300dp"
+            app:layout_constraintWidth_max="@dimen/largeWidth"
             style="@style/ConstraintLayoutTextStyle"
             tools:text="Nestle"/>
 
@@ -79,7 +79,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/weightLabel"
             app:layout_constraintTop_toBottomOf="@id/companyText"
-            app:layout_constraintWidth_max="300dp"
+            app:layout_constraintWidth_max="@dimen/largeWidth"
             style="@style/ConstraintLayoutTextStyle"
             tools:text="5 kg"/>
 
@@ -99,7 +99,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/weightLabel"
             app:layout_constraintTop_toBottomOf="@id/weightText"
-            app:layout_constraintWidth_max="300dp"
+            app:layout_constraintWidth_max="@dimen/largeWidth"
             style="@style/ConstraintLayoutTextStyle"
             tools:text="This is a block of dirt. You can use it for a whole bunch of things, like building a house"/>
 

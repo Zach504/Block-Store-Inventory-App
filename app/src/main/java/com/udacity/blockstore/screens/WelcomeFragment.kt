@@ -20,7 +20,7 @@ class  WelcomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //Inflate view and get instance of binding class
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
+        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
 
         //Create Instructions Click Listener
         binding.instructionsButton.setOnClickListener {

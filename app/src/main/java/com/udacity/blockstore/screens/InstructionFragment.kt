@@ -20,6 +20,7 @@ class InstructionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //Inflate view and get instance of binding class
+        binding = FragmentInstructionBinding.inflate(inflater, container, false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_instruction, container, false)
 
         //Create View Blocks Click Listener (navigate to list of blocks)
